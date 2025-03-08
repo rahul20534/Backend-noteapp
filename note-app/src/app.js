@@ -5,6 +5,10 @@ const cors = require('cors');
 //importing body-parser
 const bodyParser = require('body-parser');
 
+//
+const sign = require('./routes/signRoute');
+const login = require('./routes/LoginRoute');
+
 //we are creating app using express here because server.js should empty so we will not mesup things
 const app = express();
 
@@ -18,5 +22,10 @@ app.use(bodyParser.json());
 
 //this is 
 app.use(bodyParser.urlencoded({extended : true}));
+
+//create middleware for route when user is on signup page
+app.use('/api/sign',sign);
+//this is for login user
+app.use('/api/login',login);
 
 module.exports = app;

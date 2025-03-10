@@ -11,11 +11,12 @@ const connectDB = require('./config/database');
 const PORT = process.env.PORT || 4000; 
 
 //connect to db before start the server
-connectDB();
+
 
 
 //then will listen the express app or start it.
-app.listen(PORT, () =>{
+app.listen(PORT, async () =>{
+    await connectDB();
     console.log(`server is running at http://localhost:${PORT}`)
 })
 

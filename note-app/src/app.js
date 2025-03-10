@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 //
 const sign = require('./routes/signRoute');
 const login = require('./routes/LoginRoute');
+const note = require('./routes/noteRoutes');
 
 //we are creating app using express here because server.js should empty so we will not mesup things
 const app = express();
@@ -27,5 +28,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use('/api/sign',sign);
 //this is for login user
 app.use('/api/login',login);
+//this is for note 
+app.use('/api/note',note);
 
 module.exports = app;
